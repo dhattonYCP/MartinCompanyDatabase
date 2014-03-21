@@ -1,4 +1,4 @@
-package edu.ycp.cs320.User;
+package edu.ycp.cs320.servlet;
 
 public class PasswordHandler {
 
@@ -13,8 +13,7 @@ public class PasswordHandler {
 		//TODO: Remove return statement and add method to 
 			return true;
 	}
-	
-	public 
+	 
 		
 		
 
