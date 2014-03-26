@@ -6,7 +6,6 @@ import edu.ycp.cs320.db.IDatabase;
 public class PasswordHandler {
 
 	public PasswordHandler() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
