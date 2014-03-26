@@ -1,15 +1,21 @@
 package edu.ycp.cs320.User;
-import java.util.ArrayList;
 public class User {
+	private String password;
+	private String user;
 	
-	
-	private ArrayList<String> user;
-	public User(String username){
-		user.add(username);
+	public void setUserName(String user){
+		this.user = user;
 	}
 
-	public String getUsername() {
-		return user.get(user.size() - 1);
+	public String getUserName() {
+		return user;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }
