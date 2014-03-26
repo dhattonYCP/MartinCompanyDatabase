@@ -1,4 +1,4 @@
-package edu.ycp.cs320.db.model;
+package martinComp.FMC.IFMA.model;
 
 public class MemberData {
 	private String lastName;

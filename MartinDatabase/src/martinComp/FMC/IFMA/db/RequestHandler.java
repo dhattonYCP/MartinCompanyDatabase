@@ -1,4 +1,4 @@
-package edu.ycp.cs320.db;
+package martinComp.FMC.IFMA.db;
 
 import java.util.List;
 import java.util.Scanner;

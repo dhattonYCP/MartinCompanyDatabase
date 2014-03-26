@@ -1,7 +1,7 @@
-package edu.ycp.cs320.db;
+package martinComp.FMC.IFMA.db;
 import java.sql.SQLException;
 
-import edu.ycp.cs320.db.model.MemberData;
+import martinComp.FMC.IFMA.model.MemberData;
 
 public interface IDatabase {
 
