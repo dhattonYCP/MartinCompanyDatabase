@@ -4,15 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class UserTest {
+public class SortTest {
 
 	@Test
-	public void testUser() {
+	public void testSort() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetUsername() {
+	public void testGetArray() {
 		fail("Not yet implemented");
 	}
 
