@@ -47,5 +47,24 @@ public class MemberData {
 	public String getPosition(){
 		return position;
 	}
+	
+	public void setFirstName(String param){
+		  firstName = param;
+	}
+	public void setLastName(String param){
+		  lastName = param;
+	}
+	public void setEmail(String param){
+		  email = param;
+	}
+	public void setPhoneNumber(String param){
+		  phoneNumber = param;
+	}
+	public void setCompanyName(String param){
+		  companyName = param;
+	}
+	public void setPosition(String param){
+		  position = param;
+	}
 
 }
