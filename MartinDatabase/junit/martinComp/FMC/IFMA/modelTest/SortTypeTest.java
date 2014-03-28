@@ -9,7 +9,7 @@ public class SortTypeTest {
 	@Test
 	public void testGetSequence() {
 		SortType test = SortType.ASCEND_ALPHA;
-		assertEquals(test.getSequence(), "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+		assertNotEquals("SORTTYPE: Sequence Incorrect" ,test.getSequence(), "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	}
 
 }
