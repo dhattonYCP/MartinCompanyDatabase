@@ -1,15 +1,29 @@
 package martinComp.FMC.IFMA.model;
-import java.util.ArrayList;
 public class User {
-	
-	
-	private ArrayList<String> user;
-	public User(String username){
-		user.add(username);
-	}
+		private String password;
+		private String user;
+		private boolean alertNotification;
+		
+		public void setUserName(String user){
+			this.user = user;
+		}
 
-	public String getUsername() {
-		return user.get(user.size() - 1);
-	}
+		public String getUserName() {
+			return user;
+		}
 
+		public String getPassword() {
+			return password;
+		}
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
+		public void setAlertNotification(boolean alertNotification){
+			this.alertNotification = alertNotification;
+		}
+		public boolean getAlertNotification(){
+			return alertNotification;
+		}
 }
+

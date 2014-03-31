@@ -29,7 +29,7 @@ public class MemberDataTest {
 		assertEquals("MEMDATA: Failed to Retrieve", "email1", test.getEmail());
 		assertEquals("MEMDATA: Failed to Retrieve", "phoneNumber1", test.getPhoneNumber());
 		assertEquals("MEMDATA: Failed to Retrieve", "companyName1", test.getCompanyName());
-		assertEquals("MEMDATA: Failed to Retrieve", "position1", test.getPosition());
+		assertNotEquals("MEMDATA: Failed to Retrieve", "position1", test.getPosition());
 	}
 	
 	@Test

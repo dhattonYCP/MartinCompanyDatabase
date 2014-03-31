@@ -27,6 +27,7 @@ public class MemberData {
 		this.phoneNumber = phoneNumber;
 		this.companyName = companyName;
 		this.position = position;
+		
 	}
 	
 	public String getFirstName(){
