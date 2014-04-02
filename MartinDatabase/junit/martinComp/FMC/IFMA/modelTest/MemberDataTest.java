@@ -1,117 +1,102 @@
 package martinComp.FMC.IFMA.modelTest;
+
 import static org.junit.Assert.*;
 import martinComp.FMC.IFMA.model.MemberData;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class MemberDataTest {
 
+	MemberData test;
+	
+	@Before
+	public void setUp() {
+		test = new MemberData();
+		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
+	}
+	
 	@Test
 	public void testMemberData() {
-			MemberData test = new MemberData();
 			assertNotEquals("MEMDATA: Failed to create", test, new MemberData());
 	}
 
 	@Test
 	public void testSetAll() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
-		assertNotEquals("MEMDATA: Failed to Retrieve", "lastName", test.getLastName());
-		assertNotEquals("MEMDATA: Failed to Retrieve", "phoneNumber", test.getPhoneNumber());
-		assertNotEquals("MEMDATA: Failed to Retrieve", "companyName", test.getCompanyName());
-		assertNotEquals("MEMDATA: Failed to Retrieve", "position", test.getPosition());
+		test.setAll("lastName1", "firstName1", "email1", "phoneNumber1", "companyName1", "position1");
+		assertEquals("MEMDATA: Failed to Retrieve", "firstName1", test.getFirstName());
+		assertEquals("MEMDATA: Failed to Retrieve", "lastName1", test.getLastName());
+		assertEquals("MEMDATA: Failed to Retrieve", "email1", test.getEmail());
+		assertEquals("MEMDATA: Failed to Retrieve", "phoneNumber1", test.getPhoneNumber());
+		assertEquals("MEMDATA: Failed to Retrieve", "companyName1", test.getCompanyName());
+		assertNotEquals("MEMDATA: Failed to Retrieve", "position1", test.getPosition());
 	}
 	
 	@Test
 	public void testSetFirstName() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
-		test.setFirstName("TEST");
-		assertNotEquals("MEMDATA: Could not set FirstName", "test", test.getFirstName());;
+		test.setFirstName("test");
+		assertEquals("MEMDATA: Could not set FirstName", "test", test.getFirstName());;
 		
 	}
 
 	@Test
 	public void testSetLastName() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
-		test.setLastName("TEST");
-		assertNotEquals("MEMDATA: Could not set LastName", "test", test.getLastName());;
+		test.setLastName("test");
+		assertEquals("MEMDATA: Could not set LastName", "test", test.getLastName());;
 	}
 
 	@Test
 	public void testSetEmail() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
-		test.setEmail("TEST");
+		test.setEmail("test");
 		assertEquals("MEMDATA: Could not set Email", "test", test.getEmail());;
 	}
 
 	@Test
 	public void testSetPhoneNumber() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
-		test.setPhoneNumber("TEST");
-		assertNotEquals("MEMDATA: Could not set PhoneNumber", "test", test.getPhoneNumber());;
+		test.setPhoneNumber("test");
+		assertEquals("MEMDATA: Could not set PhoneNumber", "test", test.getPhoneNumber());;
 	}
 
 	@Test
 	public void testSetCompanyName() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
-		test.setCompanyName("TEST");
+		test.setCompanyName("test");
 		assertEquals("MEMDATA: Could not set CompanyName", "test", test.getCompanyName());;
 	}
 
 	@Test
 	public void testSetPosition() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
-		test.setPosition("TEST");
+		test.setPosition("test");
 		assertEquals("MEMDATA: Could not set Position", "test", test.getPosition());;
 	}
 	
 	@Test
 	public void testGetFirstName() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
 		assertEquals("MEMDATA: Could not get First", "firstName", test.getFirstName());
 	}
 
 	@Test
 	public void testGetLastName() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
 		assertEquals("MEMDATA: Could not get LastName", "lastName", test.getLastName());
 	}
 
 	@Test
 	public void testGetEmail() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
 		assertEquals("MEMDATA: Could not get Email", "email", test.getEmail());
 	}
 
 	@Test
 	public void testGetPhoneNumber() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
 		assertEquals("MEMDATA: Could not get PhoneNumber", "phoneNumber", test.getPhoneNumber());
 	}
 
 	@Test
 	public void testGetCompanyName() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
 		assertEquals("MEMDATA: Could not get CompanyName", "companyName", test.getCompanyName());
 	}
 
 	@Test
 	public void testGetPosition() {
-		MemberData test = new MemberData();
-		test.setAll("lastName", "firstName", "email", "phoneNumber", "companyName", "position");
 		assertEquals("MEMDATA: Could not get Position", "position", test.getPosition());
 	}
-
 
 }
