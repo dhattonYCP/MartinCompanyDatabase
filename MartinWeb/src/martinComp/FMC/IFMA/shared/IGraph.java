@@ -8,5 +8,6 @@ public interface IGraph {
 
 	public MemberData graphData(RequestHandler request) throws SQLException;
 	public void sendData(RequestHandler request) throws SQLException;
+
 	
 }
