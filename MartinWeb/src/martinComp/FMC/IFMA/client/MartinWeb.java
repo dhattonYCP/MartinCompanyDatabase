@@ -40,6 +40,9 @@ public class MartinWeb implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+		String hello = "WTF?";
+		
+		
 		final Button sendButton = new Button("Send");
 		sendButton.setText("Login");
 		final Label errorLabel = new Label();
@@ -52,7 +55,6 @@ public class MartinWeb implements EntryPoint {
 		RootPanel rootPanel = RootPanel.get("nameFieldContainer");
 		RootPanel.get("sendButtonContainer").add(sendButton, 366, 442);
 		RootPanel.get("errorLabelContainer").add(errorLabel);
-		
 		PasswordTextBox passwordTextBox = new PasswordTextBox();
 		rootPanel.add(passwordTextBox, 316, 404);
 		passwordTextBox.setSize("156px", "16px");
