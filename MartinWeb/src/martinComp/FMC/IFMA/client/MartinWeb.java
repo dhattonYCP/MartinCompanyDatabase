@@ -42,6 +42,7 @@ public class MartinWeb implements EntryPoint {
 	public void onModuleLoad() {
 		String hello = "WTF?";
 		
+		
 		final Button sendButton = new Button("Send");
 		sendButton.setText("Login");
 		final Label errorLabel = new Label();
