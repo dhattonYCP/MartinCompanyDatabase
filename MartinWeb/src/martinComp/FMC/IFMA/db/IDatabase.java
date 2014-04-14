@@ -1,11 +1,12 @@
 package martinComp.FMC.IFMA.db;
-import java.sql.SQLException;
+
+import java.util.ArrayList;
 
 import martinComp.FMC.IFMA.model.MemberData;
 
 public interface IDatabase {
 
-	public MemberData retrieveData(RequestHandler request) throws SQLException;
-	public void sendData(RequestHandler request) throws SQLException;
+	public ArrayList<MemberData> retrieveListData(RequestHandler request);
+	public void sendData(RequestHandler request);
 	
 }
