@@ -1,5 +1,8 @@
 package martinComp.FMC.IFMA.control;
 
-public class UserDataController {
+import martinComp.FMC.IFMA.model.User;
 
+public class UserDataController {
+	User user;
+	
 }
