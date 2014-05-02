@@ -11,5 +11,4 @@ public interface BrotherDataServiceAsync {
 	void retriveBrotherData(ItemQuery request,
 			AsyncCallback<BrotherData> callback);
 
-
 }
