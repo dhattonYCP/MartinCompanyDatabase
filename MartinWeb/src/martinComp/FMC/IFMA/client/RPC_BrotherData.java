@@ -1,5 +1,8 @@
 package martinComp.FMC.IFMA.client;
 
-public class RPC_BrotherData {
+import com.google.gwt.core.shared.GWT;
 
+public class RPC_BrotherData {
+		public static final BrotherDataServiceAsync brodata = 
+				GWT.create(BrotherDataService.class);
 }
