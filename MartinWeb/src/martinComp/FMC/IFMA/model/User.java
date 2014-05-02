@@ -1,5 +1,9 @@
 package martinComp.FMC.IFMA.model;
-public class User {
+
+import java.io.Serializable;
+
+public class User implements Serializable {
+		private static final long  serial = 1L;
 		private String password;
 		private String user;
 		private boolean alertNotification;
