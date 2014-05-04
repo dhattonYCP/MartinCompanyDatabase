@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import martinComp.FMC.IFMA.model.BrotherData;
 import martinComp.FMC.IFMA.shared.ITransaction;
 import martinComp.FMC.IFMA.shared.Login;
 
@@ -96,7 +97,6 @@ public class Database implements IDatabase{
 							"  id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), " +
 							"  username VARCHAR(200) NOT NULL, " +
 							"  password VARCHAR(200) NOT NULL, " +
-							"  memscore DOUBLE " +
 							")"
 					);
 
@@ -220,9 +220,7 @@ public class Database implements IDatabase{
 
 				try {					
 					stmt = conn.prepareStatement("update logins " +
-							" set memscore = ?" +
 							" where username = ? "  // FIXME:+  security issue
-							//" AND ? < memscore"     // only update score if new score is higher
 							);
 
 					stmt.setDouble(1, score);
@@ -238,6 +236,25 @@ public class Database implements IDatabase{
 				}
 			}
 		});
+	}
+
+	@Override
+	public List<BrotherData> getBroData(String parameter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BrotherData findBroData(String parameter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BrotherData addBroData(String lastName, String firstName,
+			String position, String pledgeClass, double GPA) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

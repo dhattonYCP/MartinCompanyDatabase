@@ -1,6 +1,6 @@
 package martinComp.FMC.IFMA.client;
 
-import martinComp.FMC.IFMA.model.User;
+import martinComp.FMC.IFMA.shared.Login;
 
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -61,9 +61,9 @@ public class LoginView extends Composite {
 		layoutPanel.setWidgetTopHeight(resultLabel, 258.0, Unit.PX, 18.0, Unit.PX);
 	}
 	protected void handleLogInClicked() {
-		RPC_Login.login.findLogin(usernameTextBox.getText(),passwordTextBox.getText(),new AsyncCallback<User>(){
+		RPC_Login.login.findLogin(usernameTextBox.getText(),passwordTextBox.getText(),new AsyncCallback<Login>(){
 			@Override
-			public void onSuccess(User result){
+			public void onSuccess(Login result){
 				if(result == null){
 					resultLabel.setText("Failed login please re-try");
 				}else {

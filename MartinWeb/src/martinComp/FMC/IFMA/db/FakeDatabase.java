@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import martinComp.FMC.IFMA.model.BrotherData;
 import martinComp.FMC.IFMA.shared.Login;
 
 public class FakeDatabase implements IDatabase {
@@ -48,5 +49,24 @@ public class FakeDatabase implements IDatabase {
 		login.setId(loginList.size());
 		loginList.add(login);
 		return login;
+	}
+
+	@Override
+	public List<BrotherData> getBroData(String parameter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BrotherData findBroData(String parameter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BrotherData addBroData(String lastName, String firstName,
+			String position, String pledgeClass, double GPA) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
