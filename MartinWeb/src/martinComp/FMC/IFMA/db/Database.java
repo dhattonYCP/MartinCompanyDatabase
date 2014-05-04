@@ -209,39 +209,41 @@ public class Database implements IDatabase{
 		}
 	}
 
-	// TODO: we need to get the username from the loginView
 
-	public void setscore(final String username, final double score) throws SQLException {
-		databaseRun(new ITransaction<Boolean>() {
+	@Override
+	public List<BrotherData> getBroData(String parameter) throws SQLException {
+		return databaseRun(new ITransaction<List<BrotherData>>() {
 			@Override
-			public Boolean run(Connection conn) throws SQLException {
+			public List<BrotherData> run(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
-				ResultSet keys = null;
+				ResultSet resultSet = null;
 
-				try {					
-					stmt = conn.prepareStatement("update logins " +
-							" where username = ? "  // FIXME:+  security issue
-							);
+				try {
+					stmt = conn.prepareStatement("select * from brotherdata");
+					resultSet = stmt.executeQuery();
 
-					stmt.setDouble(1, score);
-					stmt.setString(2,  username);
-					//stmt.setDouble(3, score);
+					List<BrotherData> result = new ArrayList<BrotherData>();
 
-					stmt.executeUpdate();
+					while(resultSet.next()) {
+						BrotherData bro = new BrotherData();
 
-					return true;
+						bro.setId(resultSet.getInt(1));
+						bro.setLastName(resultSet.getString(2));
+						bro.setFirstName(resultSet.getString(3));
+						bro.setPledgeClass(resultSet.getString(4));
+						bro.setPosition(resultSet.getString(5));
+						bro.setGPA(resultSet.getDouble(6));
+						
+						result.add(bro);
+					}
+
+					return result;
 				} finally {
 					DBUtil.closeQuietly(stmt);
-					DBUtil.closeQuietly(keys);
+					DBUtil.closeQuietly(resultSet);
 				}
 			}
 		});
-	}
-
-	@Override
-	public List<BrotherData> getBroData(String parameter) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -251,10 +253,8 @@ public class Database implements IDatabase{
 	}
 
 	@Override
-	public BrotherData addBroData(String lastName, String firstName,
-			String position, String pledgeClass, double GPA) {
-		// TODO Auto-generated method stub
-		return null;
+	public BrotherData addBroData(String lastName, String firstName, String position, String pledgeClass, double GPA) {
+		return DBUtil.instance().addBroData(lastName, firstName, position, pledgeClass, GPA);
 	}
 
 

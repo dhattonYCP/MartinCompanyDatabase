@@ -1,6 +1,7 @@
 package martinComp.FMC.IFMA.model;
 
 public class BrotherData {
+	private int id;
 	private String lastName;
 	private String firstName;
 	private String position;
@@ -14,8 +15,19 @@ public class BrotherData {
 		pledgeClass = null;
 		GPA = 0.0;
 	}
+	public BrotherData(int id, String lastName, String firstName, String position, String pledgeClass, double GPA){
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.position = position;
+		this.pledgeClass = pledgeClass;
+		this.GPA = GPA;
+		this.id = id;
+	}
+	public void setId(int id) {
+		this.id = id;		
+	}
 	public void setLastName(String lastName){
-		this.lastName= lastName;
+		this.lastName = lastName;
 	}
 	public void setFirstName(String firstName){
 		this.firstName = firstName;
@@ -29,19 +41,23 @@ public class BrotherData {
 	public void setGPA(double GPA){
 		this.GPA = GPA;
 	}
-	public String getLastName(String lastName){
-		return lastName;
+	public String getLastName(){
+		return this.lastName;
 	}
-	public String getFirstName(String firstName){
-		return firstName;
+	public String getFirstName(){
+		return this.firstName;
 	}
-	public String getPosition(String position){
-		return position;
+	public String getPosition(){
+		return this.position;
 	}
-	public String getPledgeClass(String pledgeClass){
-		return pledgeClass;
+	public String getPledgeClass(){
+		return this.pledgeClass;
 	}
-	public double getGPA(double GPA){
-		return GPA;
+	public double getGPA(){
+		return this.GPA;
 	}
+	public int getId(){
+		return this.id;
+	}
+	
 }

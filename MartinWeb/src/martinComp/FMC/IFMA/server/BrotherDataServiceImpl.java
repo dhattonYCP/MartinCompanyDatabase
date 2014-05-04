@@ -3,14 +3,24 @@ package martinComp.FMC.IFMA.server;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 import martinComp.FMC.IFMA.client.BrotherDataService;
+import martinComp.FMC.IFMA.db.DBUtil;
 import martinComp.FMC.IFMA.model.BrotherData;
 
 public class BrotherDataServiceImpl extends RemoteServiceServlet implements BrotherDataService {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public BrotherData retriveBrotherData(String parameter) {
-		// TODO Auto-generated method stub
-		return null;
+		return DBUtil.instance().findBroData(parameter);
+	}
+
+	@Override
+	public BrotherData addBrotherData(String lastName, String firstName, String position, String pledgeClass, double GPA) {
+		return DBUtil.instance().addBroData(lastName, firstName, position, pledgeClass, GPA);
 	}
 
 }

@@ -15,7 +15,7 @@ public interface IDatabase {
 
 	public Login addLogin(String username, String password) throws SQLException;
 	
-	public List<BrotherData> getBroData(String parameter);
+	public List<BrotherData> getBroData(String parameter) throws SQLException;
 	
 	public BrotherData findBroData(String parameter);
 	

@@ -8,4 +8,7 @@ public interface BrotherDataServiceAsync {
 
 	void retriveBrotherData(String parameter, AsyncCallback<BrotherData> callback);
 
+	void addBrotherData(String lastName, String firstName, String position,
+			String pledgeClass, double GPA, AsyncCallback<BrotherData> callback);
+
 }
