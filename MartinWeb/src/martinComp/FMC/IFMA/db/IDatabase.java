@@ -1,7 +1,5 @@
 package martinComp.FMC.IFMA.db;
 
-import java.util.ArrayList;
-
 import java.sql.SQLException;
 import java.util.List;
 

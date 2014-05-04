@@ -29,19 +29,19 @@ public class Brother {
 	public void setGPA(double GPA){
 		this.GPA = GPA;
 	}
-	public String getLastName(String lastName){
+	public String getLastName(){
 		return lastName;
 	}
-	public String getFirstName(String firstName){
+	public String getFirstName(){
 		return firstName;
 	}
-	public String getPosition(String position){
+	public String getPosition(){
 		return position;
 	}
-	public String getPledgeClass(String pledgeClass){
+	public String getPledgeClass(){
 		return pledgeClass;
 	}
-	public double getGPA(double GPA){
+	public double getGPA(){
 		return GPA;
 	}
 }
