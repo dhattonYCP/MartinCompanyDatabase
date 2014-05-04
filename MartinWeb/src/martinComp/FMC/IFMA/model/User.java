@@ -1,9 +1,8 @@
 package martinComp.FMC.IFMA.model;
 
 import java.io.Serializable;
-
 public class User implements Serializable {
-		private static final long  serial = 1L;
+		private static final long serialVersionUID = 1L;
 		private String password;
 		private String user;
 		private boolean alertNotification;

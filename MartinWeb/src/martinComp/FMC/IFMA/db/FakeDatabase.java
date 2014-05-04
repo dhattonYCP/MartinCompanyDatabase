@@ -1,4 +1,5 @@
 package martinComp.FMC.IFMA.db;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,5 +49,4 @@ public class FakeDatabase implements IDatabase {
 		loginList.add(login);
 		return login;
 	}
-
 }

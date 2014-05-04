@@ -1,5 +1,7 @@
 package martinComp.FMC.IFMA.db;
 
+import java.util.ArrayList;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -12,6 +14,5 @@ public interface IDatabase {
 
 	public Login findLogin(String username, String password);
 
-	public Login addLogin(String username, String password) throws SQLException;
-	
+	public Login addLogin(String username, String password) throws SQLException;	
 }

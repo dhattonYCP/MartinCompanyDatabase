@@ -6,7 +6,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface BrotherDataServiceAsync {
 
-	void retriveBrotherData(String parameter,
-			AsyncCallback<BrotherData> callback);
+	void retriveBrotherData(String parameter, AsyncCallback<BrotherData> callback);
 
 }
