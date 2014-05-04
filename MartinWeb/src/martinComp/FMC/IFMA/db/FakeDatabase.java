@@ -49,8 +49,4 @@ public class FakeDatabase implements IDatabase {
 		return login;
 	}
 
-	@Override
-	public void setscore(String username, double score) throws SQLException {
-
-	}
 }
