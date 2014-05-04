@@ -1,27 +1,56 @@
 package martinComp.FMC.IFMA.db;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import martinComp.FMC.IFMA.model.MemberData;
+import java.util.List;
+
+import martinComp.FMC.IFMA.shared.Login;
 
 public class FakeDatabase implements IDatabase {
-
-	
-	private ArrayList<MemberData> memData;
-	private RequestHandler request;
+	private List<Login> loginList;
 
 	public FakeDatabase() {
-		memData = new ArrayList<MemberData>();
-		request = new RequestHandler();
-		
+		this.loginList = new ArrayList<Login>();
+
+		Login user1 = new Login();
+		user1.setPassword("abc");
+		user1.setUserName("alice");
+
+		Login user2 = new Login();
+		user2.setPassword("def");
+		user2.setUserName("bob");
+
+		loginList.add(user1);
+		loginList.add(user2);
 	}
 
 	@Override
-	public ArrayList<MemberData> retrieveListData(RequestHandler request){
-		return request.retrieveListData();
+	public List<Login> getLogin() throws SQLException {
+		return new ArrayList<Login>(loginList);
+	}
+
+	// making
+	@Override
+	public Login findLogin(String username, String password) {
+		for (Login user : loginList) {
+			if (user.getUser().equals(username) && user.getPassword().equals(password)) {
+				return user;
+			}
+		}
+		return null; // no such user
 	}
 
 	@Override
-	public void sendData(RequestHandler request) {
-		memData.add(request.addData());
+	public Login addLogin(String username, String password) {
+		Login login = new Login();
+		login.setUserName(username);
+		login.setPassword(password);
+		login.setId(loginList.size());
+		loginList.add(login);
+		return login;
 	}
 
+	@Override
+	public void setscore(String username, double score) throws SQLException {
+
+	}
 }
