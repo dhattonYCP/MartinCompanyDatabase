@@ -131,7 +131,6 @@ public class Database implements IDatabase{
 						login.setId(resultSet.getInt(1));
 						login.setUserName(resultSet.getString(2));
 						login.setPassword(resultSet.getString(3));
-						login.setMemscore(resultSet.getDouble(4));
 
 						result.add(login);
 					}
