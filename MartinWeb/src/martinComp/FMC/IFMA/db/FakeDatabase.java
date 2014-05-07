@@ -86,8 +86,11 @@ public class FakeDatabase implements IDatabase {
 
 	@Override
 	public List<BrotherData> getBroData(String parameter) {
-		// TODO Auto-generated method stub
-		return null;
+		List<BrotherData> temp = new ArrayList<BrotherData>();
+		for(BrotherData e : this.broDataList){
+			if(true)temp.add(e);
+		}
+		return temp;
 	}
 
 	@Override

@@ -5,14 +5,14 @@ public class Brother {
 	private String firstName;
 	private String position;
 	private String pledgeClass;
-	private double GPA;
+	private String GPA;
 	
 	public Brother(){
 		lastName = null;
 		firstName = null;
 		position = null;
 		pledgeClass = null;
-		GPA = 0.0;
+		GPA = null;
 	}
 	public void setLastName(String lastName){
 		this.lastName= lastName;
@@ -27,7 +27,7 @@ public class Brother {
 		this.pledgeClass = pledgeClass;
 	}
 	public void setGPA(double GPA){
-		this.GPA = GPA;
+		this.GPA = Double.toString(GPA);
 	}
 	public String getLastName(){
 		return lastName;
@@ -41,7 +41,7 @@ public class Brother {
 	public String getPledgeClass(){
 		return pledgeClass;
 	}
-	public double getGPA(){
+	public String getGPA(){
 		return GPA;
 	}
 }
