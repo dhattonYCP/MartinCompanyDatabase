@@ -248,8 +248,7 @@ public class Database implements IDatabase{
 
 	@Override
 	public BrotherData findBroData(String parameter) {
-		// TODO Auto-generated method stub
-		return null;
+		return DBUtil.instance().findBroData(parameter);
 	}
 
 	@Override

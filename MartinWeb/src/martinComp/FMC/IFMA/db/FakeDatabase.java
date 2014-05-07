@@ -9,10 +9,12 @@ import martinComp.FMC.IFMA.shared.Login;
 
 public class FakeDatabase implements IDatabase {
 	private List<Login> loginList;
+	private List<BrotherData> broDataList;
 
 	public FakeDatabase() {
 		this.loginList = new ArrayList<Login>();
-
+		this.broDataList = new ArrayList<BrotherData>();
+		
 		Login user1 = new Login();
 		user1.setPassword("abc");
 		user1.setUserName("alice");
@@ -23,6 +25,37 @@ public class FakeDatabase implements IDatabase {
 
 		loginList.add(user1);
 		loginList.add(user2);
+		
+		BrotherData data1 = new BrotherData();
+		data1.setFirstName("Guy");
+		data1.setLastName("One");
+		data1.setGPA(1.5);
+		data1.setPledgeClass("Alpha");
+		
+		BrotherData data2 = new BrotherData();
+		data2.setFirstName("Dude");
+		data2.setLastName("Two");
+		data2.setGPA(2.5);
+		data2.setPledgeClass("Beta");
+		
+		BrotherData data3 = new BrotherData();
+		data3.setFirstName("Guy");
+		data3.setLastName("Three");
+		data3.setGPA(4.0);
+		data3.setPledgeClass("Gamma");
+		
+		BrotherData data4 = new BrotherData();
+		data4.setFirstName("Dude");
+		data4.setLastName("Four");
+		data4.setGPA(2.49);
+		data4.setPledgeClass("Beta");
+		
+		broDataList.add(data1);
+		broDataList.add(data2);
+		broDataList.add(data3);
+		broDataList.add(data4);
+		
+		
 	}
 
 	@Override
