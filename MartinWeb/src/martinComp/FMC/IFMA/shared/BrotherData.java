@@ -1,6 +1,12 @@
 package martinComp.FMC.IFMA.shared;
 
-public class BrotherData {
+import java.io.Serializable;
+
+public class BrotherData implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String lastName;
 	private String firstName;
@@ -15,13 +21,12 @@ public class BrotherData {
 		pledgeClass = null;
 		GPA = null;
 	}
-	public BrotherData(int id, String lastName, String firstName, String position, String pledgeClass, String GPA){
+	public BrotherData( String lastName, String firstName, String position, String pledgeClass, String GPA){
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.position = position;
 		this.pledgeClass = pledgeClass;
 		this.GPA = GPA;
-		this.id = id;
 	}
 	public void setId(int id) {
 		this.id = id;		
@@ -58,6 +63,15 @@ public class BrotherData {
 	}
 	public int getId(){
 		return this.id;
+	}
+	public void setAs(BrotherData e) {
+		this.id = e.getId();
+		this.firstName = e.getFirstName();
+		this.lastName = e.getLastName();
+		this.pledgeClass = e.getPledgeClass();
+		this.position = e.getPosition();
+		this.GPA = e.getGPA();
+		
 	}
 	
 }

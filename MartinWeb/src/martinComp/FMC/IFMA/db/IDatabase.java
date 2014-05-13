@@ -19,5 +19,6 @@ public interface IDatabase {
 	
 	public BrotherData findBroData(String parameter);
 	
-	public BrotherData addBroData(String lastName, String firstName, String position, String pledgeClass, String GPA);
+	public BrotherData addBroData(String lastName, String firstName, String position, String pledgeClass, String GPA) throws SQLException;
+
 }

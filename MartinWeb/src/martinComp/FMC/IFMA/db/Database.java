@@ -245,16 +245,55 @@ public class Database implements IDatabase{
 			}
 		});
 	}
+	
+	@Override
+	public BrotherData addBroData(final String lastName, final String firstName, final String position, final String pledgeClass, final String GPA) throws SQLException {
+
+		try {
+			return databaseRun(new ITransaction<BrotherData>() {
+				@Override
+				public BrotherData run(Connection conn) throws SQLException {
+					// TODO: create BrtherData object, insert its data into the database
+					PreparedStatement stmt = null;
+					ResultSet keys = null;
+					try {
+						BrotherData broData = new BrotherData();
+						
+
+						stmt = conn.prepareStatement(
+								"insert into brodata (username, password) values (?, ?)",
+								PreparedStatement.RETURN_GENERATED_KEYS
+						);
+						stmt.setString(1, lastName);
+						stmt.setString(2, firstName);
+						stmt.setString(4, position);
+						stmt.setString(3, pledgeClass);
+						stmt.setString(5, GPA);
+
+						stmt.executeUpdate();
+
+						keys = stmt.getGeneratedKeys();
+						if (!keys.next()) {
+							throw new SQLException("Can't happen: no generated key for inserted login");
+						}
+						broData.setId(keys.getInt(1));
+
+						return broData;
+					} catch (SQLException e) {
+						throw new RuntimeException("SQLException inserting login", e);
+					}
+				}
+			});
+		} catch (SQLException e) {
+			throw new RuntimeException("SQL exception adding user to database", e);
+		}
+	}
 
 	@Override
 	public BrotherData findBroData(String parameter) {
 		return DBUtil.instance().findBroData(parameter);
 	}
 
-	@Override
-	public BrotherData addBroData(String lastName, String firstName, String position, String pledgeClass, String GPA) {
-		return DBUtil.instance().addBroData(lastName, firstName, position, pledgeClass, GPA);
-	}
 
 
 }

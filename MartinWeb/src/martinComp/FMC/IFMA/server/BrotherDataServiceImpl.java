@@ -1,5 +1,7 @@
 package martinComp.FMC.IFMA.server;
 
+import java.sql.SQLException;
+
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 import martinComp.FMC.IFMA.client.BrotherDataService;
@@ -20,7 +22,13 @@ public class BrotherDataServiceImpl extends RemoteServiceServlet implements Brot
 
 	@Override
 	public BrotherData addBrotherData(String lastName, String firstName, String position, String pledgeClass, String GPA) {
-		return DBUtil.instance().addBroData(lastName, firstName, position, pledgeClass, GPA);
+		try {
+			return DBUtil.instance().addBroData(lastName, firstName, position, pledgeClass, GPA);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

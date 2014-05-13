@@ -88,21 +88,37 @@ public class FakeDatabase implements IDatabase {
 	public List<BrotherData> getBroData(String parameter) {
 		List<BrotherData> temp = new ArrayList<BrotherData>();
 		for(BrotherData e : this.broDataList){
-			if(true)temp.add(e);
+			if(e.getLastName().equals(parameter))temp.add(e);
+			else if(e.getLastName().equals(parameter))temp.add(e);
+			else if(e.getFirstName().equals(parameter))temp.add(e);
+			else if(e.getPledgeClass().equals(parameter))temp.add(e);
+			else if(e.getPosition().equals(parameter))temp.add(e);
+			else if(e.getGPA().equals(parameter))temp.add(e);
 		}
 		return temp;
 	}
 
 	@Override
 	public BrotherData findBroData(String parameter) {
-		// TODO Auto-generated method stub
-		return null;
+		BrotherData temp = new BrotherData();
+		for(BrotherData e : this.broDataList){
+			if(e.getLastName().equals(parameter))temp.setAs(e);
+			else if(e.getLastName().equals(parameter))temp.setAs(e);
+			else if(e.getFirstName().equals(parameter))temp.setAs(e);
+			else if(e.getPledgeClass().equals(parameter))temp.setAs(e);
+			else if(e.getPosition().equals(parameter))temp.setAs(e);
+			else if(e.getGPA().equals(parameter))temp.setAs(e);
+		}
+		return temp;
 	}
 
 	@Override
 	public BrotherData addBroData(String lastName, String firstName,
 			String position, String pledgeClass, String GPA) {
-		// TODO Auto-generated method stub
-		return null;
+		BrotherData brodata = new BrotherData(lastName, firstName, position, pledgeClass, GPA);
+		brodata.setId(broDataList.size());
+		broDataList.add(brodata);
+		return brodata;
 	}
+
 }
