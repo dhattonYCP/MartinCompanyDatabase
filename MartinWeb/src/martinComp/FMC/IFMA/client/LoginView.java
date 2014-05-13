@@ -3,6 +3,8 @@ package martinComp.FMC.IFMA.client;
 import martinComp.FMC.IFMA.shared.Login;
 
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -29,12 +31,16 @@ public class LoginView extends Composite {
 		initWidget(layoutPanel);
 		layoutPanel.setSize("721px", "526px");
 		
-		loginButton = new Button("New button");
+		loginButton = new Button("Login");
 		loginButton.setText("Login");
 		layoutPanel.add(loginButton);
 		layoutPanel.setWidgetLeftWidth(loginButton, 329.0, Unit.PX, 81.0, Unit.PX);
 		layoutPanel.setWidgetTopHeight(loginButton, 408.0, Unit.PX, 30.0, Unit.PX);
-	
+		loginButton.addClickHandler(new ClickHandler() {
+				public void onClick(ClickEvent event){
+					handleLogInClicked();
+				}
+		});
 	    passwordTextBox = new PasswordTextBox();
 		layoutPanel.add(passwordTextBox);
 		layoutPanel.setWidgetLeftWidth(passwordTextBox, 288.0, Unit.PX, 173.0, Unit.PX);
@@ -80,6 +86,7 @@ public class LoginView extends Composite {
 		});
 	}
 	public void NextPanel(){
+		main = new MainPage();
 		layoutPanel.clear();
 		layoutPanel.add(main);
 	}
