@@ -1,15 +1,15 @@
+
+
 package martinComp.FMC.IFMA.client;
 
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.RootLayoutPanel;
 
 public class MainPage  extends Composite {
 	LayoutPanel mainPage;
 	ListBox brotherTypeList;
-	private LoginView loginPage;
 	
 	public MainPage() {
 		
