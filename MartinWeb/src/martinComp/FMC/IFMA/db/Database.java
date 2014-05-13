@@ -84,7 +84,7 @@ public class Database implements IDatabase{
 		}
 	}
 
-	void createTables() throws SQLException {
+	public void createTables(final String tableName) throws SQLException {
 		databaseRun(new ITransaction<Boolean>() {
 			@Override
 			public Boolean run(Connection conn) throws SQLException {
@@ -93,7 +93,7 @@ public class Database implements IDatabase{
 
 				try {
 					stmt = conn.prepareStatement(
-							"create table logins (" +
+							"create table "+ tableName +" (" +
 							"  id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), " +
 							"  username VARCHAR(200) NOT NULL, " +
 							"  password VARCHAR(200) NOT NULL, " +
@@ -105,7 +105,7 @@ public class Database implements IDatabase{
 				} finally {
 					DBUtil.closeQuietly(stmt);
 				}
-
+				
 				return true;
 			}
 		});
