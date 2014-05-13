@@ -4,16 +4,18 @@ import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.RootLayoutPanel;
 
-public class MainPage extends Composite {
-	private LayoutPanel mainPage;
-	private ListBox brotherTypeList;
+public class MainPage  extends Composite {
+	LayoutPanel mainPage;
+	ListBox brotherTypeList;
+	private LoginView loginPage;
 	
 	public MainPage() {
 		
 	    mainPage = new LayoutPanel();
 		initWidget(mainPage);
-		mainPage.setSize("773px", "512px");
+		mainPage.setSize("773px", "750px");
 		
 		brotherTypeList = new ListBox();
 		brotherTypeList.addItem("All Brothers");
@@ -24,4 +26,6 @@ public class MainPage extends Composite {
 		mainPage.setWidgetTopHeight(brotherTypeList, 139.0, Unit.PX, 100.0, Unit.PX);
 		brotherTypeList.setVisibleItemCount(5);
 	}
+
+	
 }
