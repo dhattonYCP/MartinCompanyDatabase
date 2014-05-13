@@ -28,10 +28,12 @@ public class LoginTest {
 	@Test
 	public void testGetUsername(){
 		assertEquals("Success","Bob",test.getUser());
+		assertNotEquals("Faild: no such user","alice",test.getUser());
 	}
 	@Test 
 	public void testGetPassword(){
 		assertEquals("Success","abc123",test.getPassword());
+		assertNotEquals("Failed: password does not match","ads545",test.getPassword());
 	}
 
 }

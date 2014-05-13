@@ -15,14 +15,6 @@ public class BrotherData {
 		pledgeClass = null;
 		GPA = null;
 	}
-	public BrotherData(int id, String lastName, String firstName, String position, String pledgeClass, String GPA){
-		this.lastName = lastName;
-		this.firstName = firstName;
-		this.position = position;
-		this.pledgeClass = pledgeClass;
-		this.GPA = GPA;
-		this.id = id;
-	}
 	public void setId(int id) {
 		this.id = id;		
 	}
