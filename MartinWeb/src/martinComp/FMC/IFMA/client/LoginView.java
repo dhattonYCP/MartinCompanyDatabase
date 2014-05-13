@@ -88,6 +88,5 @@ public class LoginView extends Composite {
 	public void NextPanel(){
 		main = new MainPage();
 		layoutPanel.clear();
-		layoutPanel.add(main);
 	}
 }
