@@ -1,6 +1,6 @@
 package martinComp.FMC.IFMA.modelTest;
 import static org.junit.Assert.*;
-import martinComp.FMC.IFMA.model.User;
+import martinComp.FMC.IFMA.shared.User;
 
 import org.junit.Before;
 import org.junit.Test;

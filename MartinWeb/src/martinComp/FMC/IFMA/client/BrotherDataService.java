@@ -1,7 +1,7 @@
 package martinComp.FMC.IFMA.client;
 
 
-import martinComp.FMC.IFMA.model.BrotherData;
+import martinComp.FMC.IFMA.shared.BrotherData;
 
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;

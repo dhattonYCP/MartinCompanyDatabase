@@ -4,7 +4,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 import martinComp.FMC.IFMA.client.BrotherDataService;
 import martinComp.FMC.IFMA.db.DBUtil;
-import martinComp.FMC.IFMA.model.BrotherData;
+import martinComp.FMC.IFMA.shared.BrotherData;
 
 public class BrotherDataServiceImpl extends RemoteServiceServlet implements BrotherDataService {
 

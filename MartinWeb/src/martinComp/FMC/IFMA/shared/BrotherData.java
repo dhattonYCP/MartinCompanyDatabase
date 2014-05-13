@@ -1,4 +1,4 @@
-package martinComp.FMC.IFMA.model;
+package martinComp.FMC.IFMA.shared;
 
 public class BrotherData {
 	private int id;

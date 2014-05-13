@@ -1,4 +1,4 @@
-package martinComp.FMC.IFMA.model;
+package martinComp.FMC.IFMA.shared;
 
 import java.io.Serializable;
 public class User implements Serializable {

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import martinComp.FMC.IFMA.model.BrotherData;
+import martinComp.FMC.IFMA.shared.BrotherData;
 import martinComp.FMC.IFMA.shared.Login;
 
 public class FakeDatabase implements IDatabase {
