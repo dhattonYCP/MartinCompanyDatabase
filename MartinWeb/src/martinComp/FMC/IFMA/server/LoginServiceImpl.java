@@ -17,7 +17,13 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
 
 	@Override
 	public Login findLogin(String username, String password) {
-		return DBUtil.instance().findLogin(username, password);
+		try {
+			return DBUtil.instance().findLogin(username, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null; //fails to find, therefore returns null
 	}
 
 	@Override
@@ -28,7 +34,7 @@ public class LoginServiceImpl extends RemoteServiceServlet implements LoginServi
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return null; //fails to add, therefore returns null
 	}
 
 }

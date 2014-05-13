@@ -11,7 +11,9 @@ public interface IDatabase {
 
 	public List<Login> getLogin() throws SQLException;
 
-	public Login findLogin(String username, String password);
+	public Login findLogin(String username, String password) throws SQLException;
+	
+	public void deleteLogin(String username, String password) throws SQLException;
 
 	public Login addLogin(String username, String password) throws SQLException;
 	
@@ -20,5 +22,8 @@ public interface IDatabase {
 	public BrotherData findBroData(String parameter);
 	
 	public BrotherData addBroData(String lastName, String firstName, String position, String pledgeClass, String GPA) throws SQLException;
+	
+	public void deleteBroData(String lastName, String firstName, String position, String pledgeClass, String GPA) throws SQLException;
+	
 
 }

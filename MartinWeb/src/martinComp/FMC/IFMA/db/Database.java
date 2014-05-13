@@ -84,7 +84,7 @@ public class Database implements IDatabase{
 		}
 	}
 
-	public void createTables(final String tableName) throws SQLException {
+	public void createLoginTable() throws SQLException {
 		databaseRun(new ITransaction<Boolean>() {
 			@Override
 			public Boolean run(Connection conn) throws SQLException {
@@ -93,10 +93,39 @@ public class Database implements IDatabase{
 
 				try {
 					stmt = conn.prepareStatement(
-							"create table "+ tableName +" (" +
+							"create table login (" +
 							"  id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), " +
 							"  username VARCHAR(200) NOT NULL, " +
 							"  password VARCHAR(200) NOT NULL, " +
+							")"
+					);
+
+					stmt.executeUpdate();
+
+				} finally {
+					DBUtil.closeQuietly(stmt);
+				}
+				
+				return true;
+			}
+		});
+	}
+	public void createBroDataTable() throws SQLException {
+		databaseRun(new ITransaction<Boolean>() {
+			@Override
+			public Boolean run(Connection conn) throws SQLException {
+
+				PreparedStatement stmt = null;
+
+				try {
+					stmt = conn.prepareStatement(
+							"create table bordata (" +
+							"  id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), " +
+							"  lastname VARCHAR(200) NOT NULL, " +
+							"  firstname VARCHAR(200) NOT NULL, " +
+							"  position VARCHAR(200) NOT NULL, " +
+							"  pledgeclass VARCHAR(200) NOT NULL, " +
+							"  gpa VARCHAR(200) NOT NULL, " +
 							")"
 					);
 
@@ -145,7 +174,7 @@ public class Database implements IDatabase{
 	}
 
 	@Override
-	public Login findLogin(final String username, final String password) {	
+	public Login findLogin(final String username, final String password) throws SQLException {	
 		try {
 			return databaseRun(new ITransaction<Login>() {
 				@Override
@@ -209,7 +238,28 @@ public class Database implements IDatabase{
 		}
 	}
 
+	public void deleteLogin(final String username, final String password) throws SQLException {
 
+			databaseRun(new ITransaction<Login>() {
+				@Override
+				public Login run(Connection conn) throws SQLException {
+					PreparedStatement stmt = null;
+					try {
+
+						stmt = conn.prepareStatement(
+								"delete from logins where login.username = ? AND login.password = ?",
+								PreparedStatement.RETURN_GENERATED_KEYS
+						);
+						
+						stmt.setString(1, username);
+						stmt.setString(2, password);
+					} catch (SQLException e) {
+						throw new RuntimeException("SQLException deleting from login", e);
+					}
+					return null;
+				}
+			});
+	}
 	@Override
 	public List<BrotherData> getBroData(String parameter) throws SQLException {
 		return databaseRun(new ITransaction<List<BrotherData>>() {
@@ -261,7 +311,7 @@ public class Database implements IDatabase{
 						
 
 						stmt = conn.prepareStatement(
-								"insert into brodata (username, password) values (?, ?)",
+								"insert into brodata (lastname, firstname, position, pledgeclass, gpa) values (?, ?, ?, ?, ?)",
 								PreparedStatement.RETURN_GENERATED_KEYS
 						);
 						stmt.setString(1, lastName);
@@ -274,19 +324,42 @@ public class Database implements IDatabase{
 
 						keys = stmt.getGeneratedKeys();
 						if (!keys.next()) {
-							throw new SQLException("Can't happen: no generated key for inserted login");
+							throw new SQLException("Can't happen: no generated key for inserted brother data");
 						}
 						broData.setId(keys.getInt(1));
 
 						return broData;
 					} catch (SQLException e) {
-						throw new RuntimeException("SQLException inserting login", e);
+						throw new RuntimeException("SQLException inserting brodata", e);
 					}
 				}
 			});
 		} catch (SQLException e) {
-			throw new RuntimeException("SQL exception adding user to database", e);
+			throw new RuntimeException("SQL exception adding brother data to database", e);
 		}
+	}
+	
+	public void deleteBroData(final String lastName, final String firstName, final String position, final String pledgeClass, final String GPA) throws SQLException {
+
+		databaseRun(new ITransaction<BrotherData>() {
+			@Override
+			public BrotherData run(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				try {
+
+					stmt = conn.prepareStatement(
+							"delete from brodata where brodata.firstname = ? AND brodata.lastname = ?",
+							PreparedStatement.RETURN_GENERATED_KEYS
+					);
+					
+					stmt.setString(1, firstName);
+					stmt.setString(2, lastName);
+				} catch (SQLException e) {
+					throw new RuntimeException("SQLException deleting from brodata", e);
+				}
+				return null;
+			}
+		});
 	}
 
 	@Override
