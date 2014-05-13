@@ -28,7 +28,7 @@ public class UserTest {
 	}
 	@Test
 	public void testGetPassword(){
-		assertEquals("User:We can't find shit","abc123",test.getPassword());
+		assertEquals("User:We can't find password","abc123",test.getPassword());
 	}
 	@Test
 	public void testGetAlertNotification(){

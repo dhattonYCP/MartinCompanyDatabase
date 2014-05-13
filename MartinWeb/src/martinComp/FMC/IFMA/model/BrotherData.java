@@ -6,16 +6,16 @@ public class BrotherData {
 	private String firstName;
 	private String position;
 	private String pledgeClass;
-	private double GPA;
+	private String GPA;
 	
 	public BrotherData(){
 		lastName = null;
 		firstName = null;
 		position = null;
 		pledgeClass = null;
-		GPA = 0.0;
+		GPA = null;
 	}
-	public BrotherData(int id, String lastName, String firstName, String position, String pledgeClass, double GPA){
+	public BrotherData(int id, String lastName, String firstName, String position, String pledgeClass, String GPA){
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.position = position;
@@ -38,7 +38,7 @@ public class BrotherData {
 	public void setPledgeClass(String pledgeClass){
 		this.pledgeClass = pledgeClass;
 	}
-	public void setGPA(double GPA){
+	public void setGPA(String GPA){
 		this.GPA = GPA;
 	}
 	public String getLastName(){
@@ -53,7 +53,7 @@ public class BrotherData {
 	public String getPledgeClass(){
 		return this.pledgeClass;
 	}
-	public double getGPA(){
+	public String getGPA(){
 		return this.GPA;
 	}
 	public int getId(){

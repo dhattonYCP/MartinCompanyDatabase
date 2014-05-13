@@ -232,7 +232,7 @@ public class Database implements IDatabase{
 						bro.setFirstName(resultSet.getString(3));
 						bro.setPledgeClass(resultSet.getString(4));
 						bro.setPosition(resultSet.getString(5));
-						bro.setGPA(resultSet.getDouble(6));
+						bro.setGPA(resultSet.getString(6));
 						
 						result.add(bro);
 					}
@@ -252,7 +252,7 @@ public class Database implements IDatabase{
 	}
 
 	@Override
-	public BrotherData addBroData(String lastName, String firstName, String position, String pledgeClass, double GPA) {
+	public BrotherData addBroData(String lastName, String firstName, String position, String pledgeClass, String GPA) {
 		return DBUtil.instance().addBroData(lastName, firstName, position, pledgeClass, GPA);
 	}
 

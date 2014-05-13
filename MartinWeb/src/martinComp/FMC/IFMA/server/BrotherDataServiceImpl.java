@@ -19,7 +19,7 @@ public class BrotherDataServiceImpl extends RemoteServiceServlet implements Brot
 	}
 
 	@Override
-	public BrotherData addBrotherData(String lastName, String firstName, String position, String pledgeClass, double GPA) {
+	public BrotherData addBrotherData(String lastName, String firstName, String position, String pledgeClass, String GPA) {
 		return DBUtil.instance().addBroData(lastName, firstName, position, pledgeClass, GPA);
 	}
 

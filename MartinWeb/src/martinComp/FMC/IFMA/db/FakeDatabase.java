@@ -29,25 +29,25 @@ public class FakeDatabase implements IDatabase {
 		BrotherData data1 = new BrotherData();
 		data1.setFirstName("Guy");
 		data1.setLastName("One");
-		data1.setGPA(1.5);
+		data1.setGPA("1.5");
 		data1.setPledgeClass("Alpha");
 		
 		BrotherData data2 = new BrotherData();
 		data2.setFirstName("Dude");
 		data2.setLastName("Two");
-		data2.setGPA(2.5);
+		data2.setGPA("2.5");
 		data2.setPledgeClass("Beta");
 		
 		BrotherData data3 = new BrotherData();
 		data3.setFirstName("Guy");
 		data3.setLastName("Three");
-		data3.setGPA(4.0);
+		data3.setGPA("4.0");
 		data3.setPledgeClass("Gamma");
 		
 		BrotherData data4 = new BrotherData();
 		data4.setFirstName("Dude");
 		data4.setLastName("Four");
-		data4.setGPA(2.49);
+		data4.setGPA("2.49");
 		data4.setPledgeClass("Beta");
 		
 		broDataList.add(data1);
@@ -101,7 +101,7 @@ public class FakeDatabase implements IDatabase {
 
 	@Override
 	public BrotherData addBroData(String lastName, String firstName,
-			String position, String pledgeClass, double GPA) {
+			String position, String pledgeClass, String GPA) {
 		// TODO Auto-generated method stub
 		return null;
 	}
