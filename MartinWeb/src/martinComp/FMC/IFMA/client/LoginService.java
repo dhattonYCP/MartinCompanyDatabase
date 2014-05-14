@@ -7,7 +7,7 @@ import martinComp.FMC.IFMA.shared.Login;
 
 @RemoteServiceRelativePath("login")
 public interface LoginService extends RemoteService {
-	Login findLogin(String username, String password);
+	public Login findLogin(String username, String password);
 
 	public Login addLogin(String username, String password);
 

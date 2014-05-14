@@ -367,6 +367,61 @@ public class Database implements IDatabase{
 		return DBUtil.instance().findBroData(parameter);
 	}
 
+	@Override
+	public void updateLogin(final String username, final String password, final String updUsername, final String updPassword) throws SQLException {
+		databaseRun(new ITransaction<Login>() {
+			@Override
+			public Login run(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				try {
+
+					stmt = conn.prepareStatement(
+							"update login " +
+							"set username = ? , password = ? " +
+							"where login.username = ? AND login.password = ?",
+							PreparedStatement.RETURN_GENERATED_KEYS
+					);
+					
+					stmt.setString(1, updUsername);
+					stmt.setString(2, updPassword);
+					stmt.setString(3, username);
+					stmt.setString(4, password);
+				} catch (SQLException e) {
+					throw new RuntimeException("SQLException deleting from login", e);
+				}
+				return null;
+			}
+		});
+		
+	}
+
+	@Override
+	public void updateBroData(final String parameter, final String type, final String update) throws SQLException {
+		
+		databaseRun(new ITransaction<BrotherData>() {
+			@Override
+			public BrotherData run(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				try {
+
+					stmt = conn.prepareStatement(
+							"update brodata set ? = ? where brodata.? = ?",
+							PreparedStatement.RETURN_GENERATED_KEYS
+					);
+					
+					stmt.setString(1, type);
+					stmt.setString(2, update);
+					stmt.setString(3, type);
+					stmt.setString(4, parameter);
+				} catch (SQLException e) {
+					throw new RuntimeException("SQLException deleting from brodata", e);
+				}
+				return null;
+			}
+		});
+		
+	}
+
 
 
 }

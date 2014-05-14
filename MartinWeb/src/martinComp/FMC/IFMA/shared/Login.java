@@ -20,6 +20,12 @@ public class Login implements Serializable{
 	public Login() {
 
 	}
+	
+	public Login(String username, String password, int id) {
+		this.user = username;
+		this.password = password;
+	}
+	
 
 	public void setId(int id){
 		this.id = id;

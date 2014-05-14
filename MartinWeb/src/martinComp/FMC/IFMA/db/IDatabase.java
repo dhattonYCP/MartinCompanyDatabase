@@ -17,11 +17,15 @@ public interface IDatabase {
 
 	public Login addLogin(String username, String password) throws SQLException;
 	
+	public void updateLogin(String username, String password,  String updUsername, String updPassword) throws SQLException;
+	
 	public List<BrotherData> getBroData(String parameter) throws SQLException;
 	
 	public BrotherData findBroData(String parameter);
 	
 	public BrotherData addBroData(String lastName, String firstName, String position, String pledgeClass, String GPA) throws SQLException;
+	
+	public void updateBroData(String parameter, String type, String update) throws SQLException;
 	
 	public void deleteBroData(String lastName, String firstName, String position, String pledgeClass, String GPA) throws SQLException;
 	

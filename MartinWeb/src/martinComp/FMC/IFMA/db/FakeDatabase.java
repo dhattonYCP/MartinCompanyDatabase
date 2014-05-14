@@ -132,11 +132,25 @@ public class FakeDatabase implements IDatabase {
 	}
 
 	@Override
-	public void deleteBroData(String lastName, String firstName,
-			String position, String pledgeClass, String GPA)
-			throws SQLException {
+	public void deleteBroData(String lastName, String firstName, String position, String pledgeClass, String GPA) throws SQLException {
 		BrotherData brodata = new BrotherData(lastName, firstName, position, pledgeClass, GPA);
 		brodata.setId(broDataList.size());
 		broDataList.remove(brodata);
 	}
+
+	@Override
+	public void updateLogin(String username, String password, String updUsername, String updPassword) throws SQLException {
+		int index = 0;
+		for(Login e : loginList){
+			if(e.getUser().equals(username) && e.getPassword().equals(password)) index = loginList.indexOf(e);
+		}
+		loginList.set(index, new Login(username, password, index));
+		
+	}
+
+	@Override
+	public void updateBroData(String parameter, String type, String update)	throws SQLException {
+		
+	}
+
 }
