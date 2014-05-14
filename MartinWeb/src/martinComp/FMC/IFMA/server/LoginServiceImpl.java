@@ -8,7 +8,7 @@ import martinComp.FMC.IFMA.client.LoginService;
 import martinComp.FMC.IFMA.db.DBUtil;
 import martinComp.FMC.IFMA.shared.Login;
 
-@SuppressWarnings("serial")
+//@SuppressWarnings("serial")
 public class LoginServiceImpl extends RemoteServiceServlet implements LoginService {
 
 	/**

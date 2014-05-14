@@ -67,7 +67,7 @@ public class LoginView extends Composite {
 		layoutPanel.setWidgetTopHeight(resultLabel, 258.0, Unit.PX, 18.0, Unit.PX);
 	}
 	protected void handleLogInClicked() {
-		RPC_Login.login.findLogin(usernameTextBox.getText(),passwordTextBox.getText(),new AsyncCallback<Login>(){
+		RPC.login.findLogin(usernameTextBox.getText(),passwordTextBox.getText(),new AsyncCallback<Login>(){
 			@Override
 			public void onSuccess(Login result){
 				if(result == null){
